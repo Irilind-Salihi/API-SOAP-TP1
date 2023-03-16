@@ -1,4 +1,4 @@
-from spyne import Application, rpc, ServiceBase, Decimal
+from spyne import Application, rpc, ServiceBase, Float
 from spyne.protocol.soap import Soap11
 from spyne.server.wsgi import WsgiApplication
 from wsgiref.simple_server import make_server
@@ -6,12 +6,12 @@ from wsgiref.simple_server import make_server
 
 class CalculService(ServiceBase):
 
-    @rpc(Decimal, Decimal, _returns=Decimal)
-    def calculTrajet(ctx, distance_km, vitesse_km_h):
-        ctx.transport.resp_headers['Access-Control-Allow-Origin'] = '*'
+    @rpc(Float, Float, _returns=Float)
+    def calculTrajet(ctx, distance, vitesse):
+        ctx.transport.resp_headers['Access-Control-Allow-Origin'] = 'http:/localhost:4200'
 
 
-        return  distance_km/vitesse_km_h
+        return  distance / vitesse
 
 
 application = Application([CalculService], 'info.802.calcul.soap',
