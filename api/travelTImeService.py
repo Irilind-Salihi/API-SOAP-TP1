@@ -8,11 +8,16 @@ from spyne import Iterable
 
 class TravelService(ServiceBase):
 
+    @rpc(Unicode, Integer, _returns=Iterable(Unicode))
+        def say_hello(ctx, name, times):
+            for i in range(times):
+                yield u'Hello, %s' % name
+                
     @rpc(Integer, Integer, _returns=Iterable(Integer))
     def travelTime(ctx,  distance, speed):
-
+        ctx.transport.resp_headers['Access-Control-Allow-Origin'] = '*'
         total_time = distance/speed
-        yield str(total_time)
+        return total_time
 
 
 application = Application([TravelService], 'spyne.examples.hello.soap',
