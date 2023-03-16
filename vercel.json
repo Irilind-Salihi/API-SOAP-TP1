@@ -1,14 +1,14 @@
 {
     "builds": [
       {
-        "src": "api/travelTimeService.py",
+        "src": "api/apisoap.py",
         "use": "@vercel/python"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "api/travelTimeService.py"
+        "dest": "api/apisoap.py"
       }
     ]
   }
