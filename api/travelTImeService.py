@@ -16,7 +16,7 @@ class TravelService(ServiceBase):
                 
     @rpc(Integer, Integer, _returns=Iterable(Integer))
     def travelTime(ctx,  distance, speed):
-        ctx.transport.resp_headers['Access-Control-Allow-Origin'] = '*'
+        ctx.transport.resp_headers['Access-Control-Allow-Origin'] = 'https://voiture-calculator-lcauenu2t-irilind-salihi.vercel.app/'
         total_time = distance/speed
         return total_time
 
