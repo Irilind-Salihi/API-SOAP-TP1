@@ -9,7 +9,7 @@ from spyne import Iterable
 class TravelService(ServiceBase):               
     @rpc(Integer, Integer, _returns=Iterable(Integer))
     def travelTime(ctx,  distance, speed):
-        ctx.transport.resp_headers['Access-Control-Allow-Origin'] = '*'
+        ctx.transport.resp_headers['Access-Control-Allow-Origin'] = 'https://voiture-calculator.vercel.app/'
         total_time = distance/speed
         return total_time
 
