@@ -20,7 +20,7 @@ class TravelService(ServiceBase):
         return total_time
 
 
-application = Application([TravelService], 'spyne.examples.hello.soap',
+application = Application([TravelService], 'spyne.examples.traject.soap',
                           in_protocol=Soap11(validator='lxml'),
                           out_protocol=Soap11())
 
