@@ -22,7 +22,7 @@ class HelloWorldService(ServiceBase):
             temps = 30 
         return res + (points * 30)
 
-application = Application([HelloWorldService], 'spyne.examples.hello.soap',
+application = Application([HelloWorldService], 'api-soap-tp-1-yjin',
         in_protocol=Soap11(validator='lxml'),
         out_protocol=Soap11())
 wsgi_application = WsgiApplication(application)
