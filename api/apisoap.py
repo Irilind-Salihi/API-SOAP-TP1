@@ -15,7 +15,7 @@ class HelloWorldService(ServiceBase):
 
     @rpc(Decimal, Decimal, Decimal, Boolean, _returns=Decimal)
     def temps_trajet(ctx, distance, vitesse_moyenne, points, fast_charging):
-        ctx.transport.resp_headers['Access-Control-Allow-Origin'] = '*'
+        ctx.transport.resp_headers['Access-Control-Allow-Origin'] = 'https://voiture-calculator.vercel.app'
         res = distance / vitesse_moyenne * 60
         temps = 60
         if fast_charging:
