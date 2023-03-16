@@ -25,3 +25,5 @@ application = Application([TravelService], 'spyne.examples.traject.soap',
                           out_protocol=Soap11())
 
 wsgi_application = WsgiApplication(application)
+
+app = wsgi_application
