@@ -6,17 +6,10 @@ from wsgiref.simple_server import make_server
 from spyne import Iterable
 
 
-class TravelService(ServiceBase):
-
-    @rpc(Unicode, Integer, _returns=Iterable(Unicode))
-        def say_hello(ctx, name, times):
-            ctx.transport.resp_headers['Access-Control-Allow-Origin'] = '*'
-            for i in range(times):
-                yield u'Hello, %s' % name
-                
+class TravelService(ServiceBase):               
     @rpc(Integer, Integer, _returns=Iterable(Integer))
     def travelTime(ctx,  distance, speed):
-        ctx.transport.resp_headers['Access-Control-Allow-Origin'] = 'https://voiture-calculator-lcauenu2t-irilind-salihi.vercel.app/'
+        ctx.transport.resp_headers['Access-Control-Allow-Origin'] = '*'
         total_time = distance/speed
         return total_time
 
