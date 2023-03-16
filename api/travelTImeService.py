@@ -10,6 +10,7 @@ class TravelService(ServiceBase):
 
     @rpc(Unicode, Integer, _returns=Iterable(Unicode))
         def say_hello(ctx, name, times):
+            ctx.transport.resp_headers['Access-Control-Allow-Origin'] = '*'
             for i in range(times):
                 yield u'Hello, %s' % name
                 
